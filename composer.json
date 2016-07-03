@@ -1,0 +1,28 @@
+{
+  "name": "Darkenery/Comments",
+  "description": "Test task",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Darkenery",
+      "email": "Darkenery@gmail.com"
+    }
+  ],
+
+  "require": {
+    "silex/silex": "v1.3.5",
+    "twig/twig": "~1.0",
+    "doctrine/dbal": "v2.5.4",
+    "symfony/twig-bridge": "^3.1",
+    "symfony/form": "^3.1",
+    "symfony/validator": "^3.1",
+    "symfony/config": "^3.1",
+    "symfony/translation": "^3.1",
+    "symfony/security": "^3.1"
+  },
+
+  "autoload": {
+    "psr-0": {"Comments": "src/"}
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Comments</title>
+
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/style.css">
+</head>
+<body>
+<div class="container">
+    <button class="btn btn-default" onclick="answer(0)">Ответить в корень</button>
+{% for comment in comments %}
+    <div id="{{ comment['id'] }}" class='comment' style="
+    {% if comment['level'] > 4 %}
+    margin-left:160px">
+        {% else %}
+    margin-left:{{ comment['level']*40 }}px">
+        {% endif %}
+        <div id="user" style="font-size: small">
+            {{ comment['user'] }} at {{ comment['date'] }}
+        </div>
+        <div id="text">
+        {{ comment['text'] }}
+        </div>
+        <button id='send' class="btn btn-default" onclick="answer({{ comment['id'] }}); scrollToElement('form')">Ответить</button>
+        <button id='send' class="btn btn-danger" onclick="deleteComment({{ comment['id'] }})">Удалить</button>
+    </div>
+{% endfor %}
+    <div id="form">
+        <form action="" method="post">
+            {{ form_widget(form) }}
+        </form>
+    </div>
+</div>
+<script src="{{ app.request.basepath }}/js/scripts.js"></script>
+</body>
