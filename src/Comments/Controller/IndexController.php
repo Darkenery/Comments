@@ -35,8 +35,5 @@ class IndexController
     public function deleteComment(Request $request, $id,  Application $app)
     {
         $app['repository.comment']->deleteComment($id);
-
-        $comments = $app['repository.comment']->getAllComments();
-        return $app['twig']->render('index.twig', array ('comments' => $comments));
     }
 }
